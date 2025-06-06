@@ -1,0 +1,27 @@
+<odoo>
+    <menuitem id="estate_menu_root" name="Estate">
+        <menuitem id="estate_menu_properties" name="Properties" sequence="10">
+            <menuitem 
+                id="estate_menu_property_list" 
+                name="Properties" 
+                action="action_estate_property"
+            />
+            <menuitem 
+                id="estate_type_menu_property_list" 
+                name="Property Types  " 
+                action="action_estate_property_type"
+            />
+            <menuitem 
+                id="estate_tag_menu_property_list" 
+                name="Property Tags" 
+                action="action_estate_property_tag"
+            />
+        </menuitem>
+        <menuitem
+            id="estate_menu_users"
+            name="Utilisateurs"
+            sequence="20"
+            action="action_estate_users"
+        />
+    </menuitem>
+</odoo>
