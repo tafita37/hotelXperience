@@ -1,0 +1,19 @@
+<odoo>
+    <data noupdate="0">
+        <record id="hotel_room_category_standard" model="hotel.room.category">
+            <field name="name">Standard room</field>
+            <field name="level">10</field>
+            <field name="rate_increase">0</field>
+        </record>
+        <record id="hotel_room_category_executive" model="hotel.room.category">
+            <field name="name">Executive room</field>
+            <field name="level">20</field>
+            <field name="rate_increase">20</field>
+        </record>
+        <record id="hotel_room_category_deluxe" model="hotel.room.category">
+            <field name="name">Deluxe room</field>
+            <field name="level">30</field>
+            <field name="rate_increase">40</field>
+        </record>
+    </data>
+</odoo>

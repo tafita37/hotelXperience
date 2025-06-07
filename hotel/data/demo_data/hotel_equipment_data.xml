@@ -1,0 +1,34 @@
+<odoo>
+    <data noupdate="0">
+        <record id="equipment_1" model="hotel.equipment">
+            <field name="name">TV 4K</field>
+            <field name="description">High-definition 4K television</field>
+            <field name="price">100000</field>  
+        </record>
+        <record id="equipment_2" model="hotel.equipment">
+            <field name="name">Minibar</field>
+            <field name="description">Mini-fridge stocked with beveragesn</field>
+            <field name="price">50000</field>
+        </record>
+        <record id="equipment_3" model="hotel.equipment">
+            <field name="name">Air Conditioning</field>
+            <field name="description">Efficient air conditioning unit</field>
+            <field name="price">70000</field>
+        </record>
+        <record id="equipment_4" model="hotel.equipment">
+            <field name="name">Wi-Fi</field>
+            <field name="description">High-speed internet access</field>
+            <field name="price">20000</field>
+        </record>
+        <record id="equipment_5" model="hotel.equipment">
+            <field name="name">Safe Box</field>
+            <field name="description">Secure safe for valuables</field>
+            <field name="price">30000</field>
+        </record>
+        <record id="equipment_6" model="hotel.equipment">
+            <field name="name">Coffee Machine</field>
+            <field name="description">In-room coffee machine</field>
+            <field name="price">25000</field>
+        </record>
+    </data>
+</odoo>
