@@ -1,27 +1,37 @@
 <odoo>
-    <menuitem id="estate_menu_root" name="Estate">
-        <menuitem id="estate_menu_properties" name="Properties" sequence="10">
-            <menuitem 
-                id="estate_menu_property_list" 
-                name="Properties" 
-                action="action_estate_property"
-            />
-            <menuitem 
-                id="estate_type_menu_property_list" 
-                name="Property Types  " 
-                action="action_estate_property_type"
-            />
-            <menuitem 
-                id="estate_tag_menu_property_list" 
-                name="Property Tags" 
-                action="action_estate_property_tag"
-            />
-        </menuitem>
-        <menuitem
-            id="estate_menu_users"
-            name="Utilisateurs"
-            sequence="20"
-            action="action_estate_users"
-        />
-    </menuitem>
+    <!-- <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="//script[last()]" position="after">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        </xpath>
+    </template> -->
+    
+    <template id="hotel_navbar" name="Hotel Navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Accueil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="equipmentDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Equipements
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="equipmentDropdown">
+                            <li><a class="dropdown-item" href="/equipment">Liste des équipements</a></li>
+                            <li><a class="dropdown-item" href="/equipment/create">Créer un équipement</a></li>
+                            <!-- <li><hr class="dropdown-divider"/></li> -->
+                            <!-- <li><a class="dropdown-item" href="/equipment/stats">Statistiques</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </template>
 </odoo>

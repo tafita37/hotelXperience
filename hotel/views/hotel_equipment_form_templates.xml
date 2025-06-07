@@ -1,0 +1,28 @@
+<odoo>
+    <template id="equipment_create_template" name="Create Equipment">
+        <t t-call="website.layout">
+            <xpath expr="//header//nav" position="replace">
+                <t t-call="hotel.hotel_navbar"/>
+            </xpath>
+            <div class="container mt-5">
+                <h1>Créer un nouvel équipement</h1>
+                <form action="/equipment/create" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="form-group">
+                        <label for="name">Nom de l'équipement</label>
+                        <input type="text" class="form-control" id="name" name="name" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Prix</label>
+                        <input type="number" class="form-control" id="price" name="price" min="0"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Créer</button>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

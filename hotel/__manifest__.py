@@ -9,7 +9,11 @@
         'data/demo_data/hotel_room_data.xml',  
 
         'security/ir.model.access.csv',  
-        # 'views/hotel_menu_view.xml'
+
+        'views/hotel_equipment_templates.xml',
+        'views/hotel_equipment_form_templates.xml',
+        'views/hotel_equipment_edit_templates.xml',
+        'views/hotel_menu_view.xml'
     ],
     'author': 'Moi',
     'category': 'Uncategorized',
