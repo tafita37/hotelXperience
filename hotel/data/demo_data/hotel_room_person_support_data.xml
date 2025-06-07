@@ -1,0 +1,19 @@
+<odoo>
+    <data noupdate="0">
+
+        <record id="room_person_support_1" model="hotel.room.person.support">
+            <field name="min_person_count">1</field>
+            <field name="rate_increase">0</field>
+        </record>
+
+        <record id="room_person_support_2" model="hotel.room.person.support">
+            <field name="min_person_count">3</field>
+            <field name="rate_increase">10</field>
+        </record>
+
+        <record id="room_person_support_3" model="hotel.room.person.support">
+            <field name="min_person_count">5</field>
+            <field name="rate_increase">30</field>
+        </record>
+    </data>
+</odoo>
