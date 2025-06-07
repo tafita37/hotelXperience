@@ -1,0 +1,39 @@
+<odoo>
+    <template id="equipment_list_template" name="Equipment List">
+        <t t-call="website.layout">
+            <xpath expr="//header//nav" position="replace">
+                <t t-call="hotel.hotel_navbar"/>
+            </xpath>
+            <div class="container mt-5">
+                <h1>Liste des équipements</h1>
+                <div class="row">
+                    <t t-foreach="equipments" t-as="equipment">
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <t t-esc="equipment.name"/>
+                                        <t t-if="equipment.id">
+                                            <a t-att-href="'/equipment/%d/edit' % equipment.id" class="btn btn-primary btn-sm ml-2">
+                                                Modifier
+                                            </a>
+                                            <a t-att-href="'/equipment/%d/delete' % equipment.id" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Voulez-vous vraiment supprimer cet équipement ?');">
+                                                Supprimer
+                                            </a>
+                                        </t>
+                                    </h5>
+                                    <p class="card-text">
+                                        <t t-esc="equipment.description"/>
+                                    </p>
+                                    <p class="card-text text-muted">
+                                        Prix : <t t-esc="equipment.price"/> ar
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
