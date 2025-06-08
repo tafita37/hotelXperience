@@ -1,0 +1,39 @@
+<odoo>
+    <template id="person_support_list_template" name="Parameters room List">
+        <t t-call="website.layout">
+            <xpath expr="//header//nav" position="replace">
+                <t t-call="hotel.hotel_navbar"/>
+                <a href="/room/person_support/create" class="btn btn-success ml-3">Ajouter un paramètre</a>
+            </xpath>
+            <div class="container mt-5">
+                <h1>Paramètres chambres</h1>
+                <div class="row">
+                    <t t-foreach="person_supports" t-as="person_support">
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <t t-if="person_support.id">
+                                            <a t-att-href="'/room/person_support/%d/edit' % person_support.id" class="btn btn-primary btn-sm ml-2">
+                                                Modifier
+                                            </a>
+                                            <a t-att-href="'/room/person_support/%d/delete' % person_support.id" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Voulez-vous vraiment supprimer cet équipement ?');">
+                                                Supprimer
+                                            </a>
+                                        </t>
+                                    </h5>
+                                    <p class="card-text">
+                                        Nombre de personne minimum : <t t-esc="person_support.min_person_count"/>
+                                    </p>
+                                    <p class="card-text">
+                                        Taux d'augmentation : <t t-esc="person_support.rate_increase"/> %
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

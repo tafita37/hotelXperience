@@ -1,10 +1,4 @@
 <odoo>
-    <!-- <template id="assets_frontend" inherit_id="website.assets_frontend">
-        <xpath expr="//script[last()]" position="after">
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        </xpath>
-    </template> -->
-    
     <template id="hotel_navbar" name="Hotel Navbar">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -20,8 +14,15 @@
                         <ul class="dropdown-menu" aria-labelledby="equipmentDropdown">
                             <li><a class="dropdown-item" href="/equipment">Liste des équipements</a></li>
                             <li><a class="dropdown-item" href="/equipment/create">Créer un équipement</a></li>
-                            <!-- <li><hr class="dropdown-divider"/></li> -->
-                            <!-- <li><a class="dropdown-item" href="/equipment/stats">Statistiques</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="chambreDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Chambres
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="chambreDropdown">
+                            <li><a class="dropdown-item" href="/room/person_support">Personne supportés</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">

@@ -13,6 +13,9 @@
         'views/hotel_equipment_templates.xml',
         'views/hotel_equipment_form_templates.xml',
         'views/hotel_equipment_edit_templates.xml',
+        'views/hotel_room_person_support_templates.xml',
+        'views/hotel_room_person_support_form_templates.xml',
+        'views/hotel_room_person_support_edit_templates.xml',
         'views/hotel_menu_view.xml'
     ],
     'author': 'Moi',

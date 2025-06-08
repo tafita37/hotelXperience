@@ -1,0 +1,24 @@
+<odoo>
+    <template id="person_support_create_template" name="Create Equipment">
+        <t t-call="website.layout">
+            <xpath expr="//header//nav" position="replace">
+                <t t-call="hotel.hotel_navbar"/>
+            </xpath>
+            <div class="container mt-5">
+                <h1>Créer paramètre support</h1>
+                <form action="/room/person_support/create" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="form-group">
+                        <label for="min_person_count">Nombre de personne minimum</label>
+                        <input type="number" class="form-control" id="min_person_count" name="min_person_count" min="1"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="rate_increase">Taux d'augmentation du prix</label>
+                        <input type="number" class="form-control" id="rate_increase" name="rate_increase" min="1"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Créer</button>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>
