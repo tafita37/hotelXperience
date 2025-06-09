@@ -1,0 +1,47 @@
+<odoo>
+    <template id="room_edit_template" name="Edit room">
+        <t t-call="website.layout">
+            <xpath expr="//header//nav" position="replace">
+                <t t-call="hotel.hotel_navbar"/>
+            </xpath>
+            <div class="container mt-5">
+                <h1>Modifier</h1>
+                <form t-att-action="'/room/%d/edit' % room.id" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="form-group">
+                        <label for="price">Prix</label>
+                        <input type="number" class="form-control" id="price" name="price" step="0.01" min="0" t-att-value="room.price"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="room_category_id">Catégorie</label>
+                        <select class="form-control" id="room_category_id" name="room_category_id" required="required">
+                            <t t-foreach="categories" t-as="cat">
+                                <option t-att-value="cat.id"
+                                        t-if="cat.id == room.room_category_id.id"
+                                        selected="selected">
+                                    <t t-esc="cat.name"/>
+                                </option>
+                                <option t-att-value="cat.id"
+                                        t-if="cat.id != room.room_category_id.id">
+                                    <t t-esc="cat.name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="supported_person_count">Nombre de personnes supportées</label>
+                        <input 
+                            type="number" 
+                            class="form-control" 
+                            id="supported_person_count" 
+                            name="supported_person_count" 
+                            min="1"  
+                            t-att-value="room.supported_person_count"
+                        />
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Modifier</button>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

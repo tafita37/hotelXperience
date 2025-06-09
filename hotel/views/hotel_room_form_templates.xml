@@ -1,0 +1,36 @@
+<odoo>
+    <template id="room_create_template" name="Créer une chambre">
+        <t t-call="website.layout">
+            <xpath expr="//header//nav" position="replace">
+                <t t-call="hotel.hotel_navbar"/>
+            </xpath>
+            <div class="container mt-5">
+                <h1>Créer une chambre</h1>
+                <form action="/room/create" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="form-group">
+                        <label for="number">Numéro de chambre</label>
+                        <input type="number" class="form-control" id="number" name="number" min="1"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Prix</label>
+                        <input type="number" class="form-control" id="price" name="price" step="0.01" min="0"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="room_category_id">Catégorie</label>
+                        <select class="form-control" id="room_category_id" name="room_category_id">
+                            <t t-foreach="categories" t-as="cat">
+                                <option t-att-value="cat.id"><t t-esc="cat.name"/></option>
+                            </t>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="supported_person_count">Nombre de personnes supportées</label>
+                        <input type="number" class="form-control" id="supported_person_count" name="supported_person_count" min="1"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Créer</button>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -3,6 +3,56 @@ from odoo.http import request
 from odoo.exceptions import AccessDenied
 
 class RoomController(http.Controller):
+
+    @http.route(['/room', '/'], auth='user', website=True)
+    def list_room(self, **kw):
+        if not request.env.user.has_group('base.group_system'):
+            raise AccessDenied("Access denied: you must be an administrator to access this page.")
+
+        rooms = request.env['hotel.room'].sudo().search([])
+        return request.render('hotel.room_list_template', {
+            'rooms': rooms
+        })
+    
+    @http.route('/room/create', auth='user', website=True, methods=['GET', 'POST'])
+    def create_room(self, **post):
+        if not request.env.user.has_group('base.group_system'):
+            raise AccessDenied("Access denied: you must be an administrator to access this page.")
+        if http.request.httprequest.method == 'POST':
+            request.env['hotel.room'].sudo().create({
+                'number': post.get('number'),
+                'price': post.get('price'),
+                'supported_person_count': post.get('supported_person_count'),
+                'room_category_id': post.get('room_category_id'),
+            })
+            return request.redirect('/room')
+        categories = request.env['hotel.room.category'].sudo().search([])
+        return request.render('hotel.room_create_template', {
+            'categories': categories
+        })
+    
+    @http.route(
+        '/room/<model("hotel.room"):room>/edit', 
+        auth='user', 
+        website=True, 
+        methods=['GET', 'POST']
+    )
+    def edit_room(self, room, **post):
+        print(post.get('room_category_id'), "ypuuuuu")
+        if not request.env.user.has_group('base.group_system'):
+            raise AccessDenied("Access denied: you must be an administrator to access this page.")
+        if http.request.httprequest.method == 'POST':
+            room.sudo().write({
+                'price': post.get('price'),
+                'room_category_id': int(post.get('room_category_id')) if post.get('room_category_id') else False,
+                'supported_person_count': post.get('supported_person_count'),
+            })
+            return request.redirect('/room')
+        categories = request.env['hotel.room.category'].sudo().search([])
+        return request.render('hotel.room_edit_template', {
+            'room': room,
+            'categories': categories
+        })
     
     @http.route('/room/person_support', auth='user', website=True)
     def list_person_support(self, **kw):

@@ -1,0 +1,44 @@
+<odoo>
+    <template id="room_list_template" name="Room List">
+        <t t-call="website.layout">
+            <xpath expr="//header//nav" position="replace">
+                <t t-call="hotel.hotel_navbar"/>
+                <a href="/room/create" class="btn btn-success ml-3">Ajouter une chambre</a>
+            </xpath>
+            <div class="container mt-5">
+                <h1>Chambres</h1>
+                <div class="row">
+                    <t t-foreach="rooms" t-as="room">
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        Chambre n° <t t-esc="room.number"/>
+                                    </h5>
+                                    <p class="card-text">
+                                        Prix de base : <t t-esc="room.price"/> ar
+                                    </p>
+                                    <p class="card-text">
+                                        Prix final : <t t-esc="room.total_price"/> ar
+                                    </p>
+                                    <p class="card-text">
+                                        Statut : <t t-esc="room.state"/>
+                                    </p>
+                                    <p class="card-text">
+                                        Catégorie : <t t-esc="room.room_category_id.name"/>
+                                    </p>
+                                    <p class="card-text">
+                                        Capacité : <t t-esc="room.supported_person_count"/> personne(s)
+                                    </p>
+                                    <a t-att-href="'/room/%d/edit' % room.id" class="btn btn-primary btn-sm ml-2">
+                                        Modifier
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
