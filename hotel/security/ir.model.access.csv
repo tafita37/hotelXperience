@@ -1,3 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hotel_equipment_system,access_hotel_equipment_system,model_hotel_equipment,base.group_system,1,1,1,1
-access_hotel_room_person_support,access_hotel_room_person_support,model_hotel_room_person_support,base.group_system,1,1,1,1
+access_hotel_equipment_user,access_hotel_equipment_user,model_hotel_equipment,base.group_user,1,0,0,0
+
+access_hotel_room_person_support_system,access_hotel_room_person_support_system,model_hotel_room_person_support,base.group_system,1,1,1,1
+access_hotel_room_person_support_user,access_hotel_room_person_support_user,model_hotel_room_person_support,base.group_user,1,0,0,0
+
+access_hotel_room_system,access_hotel_room_system,model_hotel_room,base.group_system,1,1,1,1
+access_hotel_room_user,access_hotel_room_user,model_hotel_room,base.group_user,1,0,0,0

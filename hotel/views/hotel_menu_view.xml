@@ -23,6 +23,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="chambreDropdown">
                             <li><a class="dropdown-item" href="/room/person_support">Personne supportés</a></li>
+                            <li><a class="dropdown-item" href="/room">Chambres</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
